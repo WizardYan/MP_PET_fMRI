@@ -28,7 +28,7 @@ pet_images = [os.path.join(pet_folder, f) for f in os.listdir(pet_folder) if f.e
 # Sort the list for consistent ordering
 pet_images.sort()
 
-for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus','fractional_occ_vis_minus','dwell_time_fpn_plus','dwell_time_vis_minus','ramdom']:
+for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus','fractional_occ_vis_minus','dwell_time_fpn_plus','dwell_time_vis_minus','random']:
     if dynamic_feature_name == 'fractional_occ_fpn_plus':
         dynamic_features = np.array([0.00417332731332901,0.0412645157336765,-0.0429395028451632,0.0379269188018588,-0.0183973084569506,0.140883323088296,0.0368003591739000,0.00268771983483712,0.0147607589444203,0.0546524686652075,0.0382503334815474,-0.0438413361169102,0.0403294822421909,-0.0223358350697966,-0.0188830720745614,0.00542986425339365,-0.0398667575138163,-0.0298491075069800,0.0141292293324513,0.0761718750000000,0.0732177263969172,0.00183084678792833,0.00483248225183709,0.0306112778392039,-0.0181409610215054,-0.0153609831029186,-0.0389127495426708,-0.0174947620472912,0.0726376049201253,0.0484400474284867,-0.0398727023495555,0.0978091057878292,0.0167497396220801,0.0376062992125984,0.0721144024514811,0.0282400806605638	])
     if dynamic_feature_name == 'fractional_occ_som_plus':
@@ -40,12 +40,12 @@ for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus'
     if dynamic_feature_name == 'dwell_time_vis_minus':
         dynamic_features = np.array([0.489789473684211,-0.615599999999999,2.27991176470588,0.247500000000000,0.567000000000000,0.507184615384615,-0.675000000000000,2.33030769230769,-0.102807692307692,-0.594000000000000,1.02446963562753,1.31528571428571,0.648000000000001,-0.447784615384616,0.356400000000001,-0.193923529411764,1.47150000000000,-0.148499999999999,-0.0185624999999998,2.55420000000000,2.70669327731092,2.49480000000000,3.68280000000000,1.50975000000000,1.35135000000000,0.763714285714285,-0.445500000000000,-0.438750000000000,-0.811038461538461,0.483685714285714,2.12355000000000,2.05354285714286,2.15325000000000,2.09727692307692,0.618750000000000,0.0989999999999993])
     if dynamic_feature_name == 'random':
-        dynamic_features =np.random.normal(size=37)
+        dynamic_features =np.random.normal(size=36)
     # Load the atlas and only keep regions labeled 1 to 32
     atlas_img = image.load_img('./data/rSchaefer2018_200Parcels_7Networks_order_Tian_Subcortex_S2_3T_MNI152NLin2009cAsym_2mm.nii')
     atlas_data = atlas_img.get_fdata()
-    #mask_data = np.isin(atlas_data, np.array([9, 10, 13, 14, 15, 16, 25, 26, 29, 30, 31, 32]))
-    mask_data = np.isin(atlas_data, np.array(range(1,233)))
+    mask_data = np.isin(atlas_data, np.array([9, 10, 13, 14, 15, 16, 25, 26, 29, 30, 31, 32]))
+    #mask_data = np.isin(atlas_data, np.array(range(1,233)))
     
     mask_img = image.new_img_like(atlas_img, mask_data)
     
@@ -65,7 +65,7 @@ for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus'
     
     
     # Threshold coefficients by p-value
-    significant_correlation = np.where(p_values < 0.005, correlation_coefficients, 0)
+    significant_correlation = np.where(p_values < 0.05, correlation_coefficients, 0)
     
     # Convert the significant correlation values back into a Nifti image
     correlation_img = masker.inverse_transform(significant_correlation)

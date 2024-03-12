@@ -34,7 +34,7 @@ PL_pet_images.sort()
 MP_pet_images.sort()
 
 
-for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus','fractional_occ_vis_minus','dwell_time_fpn_plus','dwell_time_vis_minus','ramdom']:
+for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus','fractional_occ_vis_minus','dwell_time_fpn_plus','dwell_time_vis_minus','random']:
     if dynamic_feature_name == 'fractional_occ_fpn_plus':
         dynamic_features = np.array([0.0306553749904631,0.00417332731332901,0.0412645157336765,-0.0429395028451632,0.0379269188018588,-0.0183973084569506,0.140883323088296,0.0368003591739000,0.00268771983483712,0.0147607589444203,0.0546524686652075,0.0382503334815474,-0.0438413361169102,0.0403294822421909,-0.0223358350697966,-0.0188830720745614,0.00542986425339365,-0.0398667575138163,-0.0298491075069800,0.0141292293324513,0.0761718750000000,0.0732177263969172,0.00183084678792833,0.00483248225183709,0.0306112778392039,-0.0181409610215054,-0.0153609831029186,-0.0389127495426708,-0.0174947620472912,0.0726376049201253,0.0484400474284867,-0.0398727023495555,0.0978091057878292,0.0167497396220801,0.0376062992125984,0.0721144024514811,0.0282400806605638	])
     if dynamic_feature_name == 'fractional_occ_som_plus':
@@ -79,7 +79,7 @@ for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus'
     
     
     # Threshold coefficients by p-value
-    significant_correlation = np.where(p_values < 0.05, correlation_coefficients, 0)
+    significant_correlation = np.where(p_values < 0.005, correlation_coefficients, 0)
     
     # Convert the significant correlation values back into a Nifti image
     correlation_img = masker.inverse_transform(significant_correlation)

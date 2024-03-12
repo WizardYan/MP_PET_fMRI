@@ -97,7 +97,7 @@ for dynamic_feature_name in ['fractional_occ_fpn_plus','fractional_occ_som_plus'
 
     # Step 2: Filter clusters by size
     sizes = ndimage.sum(image_data, labeled_array, range(num_features + 1))
-    cluster_mask = sizes > 30
+    cluster_mask = sizes > 20
     filtered_clusters_mask = cluster_mask[labeled_array]
     # Step 3: Create a mask for the original image
     # This mask has 'True' for voxels in clusters > 30 voxels, and 'False' elsewhere
