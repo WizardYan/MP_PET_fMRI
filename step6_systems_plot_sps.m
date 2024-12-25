@@ -10,7 +10,15 @@ split='main'
 savedir = fullfile(basedir,'results','example');mkdir(savedir);		% set save directory
 load(fullfile(savedir,['Partition_bp',num2str(split),'_k',num2str(numClusters),'.mat']))
 
-
+%% Dendrogram
+Z = linkage(centroids', 'ward','correlation'); % Using Ward's method
+figure;
+dendrogram(Z);
+title('Dendrogram of k-means Centroids, method: ward, metric: correlation');
+xlabel('Cluster Index');
+ylabel('Distance');
+            
+            
 %%
 overallNames = clusterNames;
 [nparc,numClusters] = size(centroids);
