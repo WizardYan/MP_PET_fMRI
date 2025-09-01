@@ -32,8 +32,12 @@ This project is licensed under the CC BY 4.0 License. For more details, please r
 
 ## Citation
 If you use this work in your research, please cite:
-Yan, W., Demiral, Ş. B., Tomasi, D., Zhang, R., Manza, P., et al. (2024). Methylphenidate enhances a frontoparietal-dominant brain state improving cognitive performance. Research Square. https://doi.org/10.21203/rs.3.rs-4096379/v1
+
+Yan W, Demiral ŞB, Tomasi D, et al. Methylphenidate Promotes a Frontoparietal-Dominant Brain State Improving Cognitive Performance: A Randomized Trial. Journal of Neuroscience 23 April 2025, 45 (17) e1693242025; DOI: 10.1523/JNEUROSCI.1693-24.2025
 
 ## Contact
 For any questions or inquiries, please contact [weizheng.yan@nih.gov].
+
+## Something Intersting
+An AI generated Song covering the findings of this project is worthy lisenting, try it by clicking [song](https://suno.com/song/3623d63f-7de7-42fc-8fd3-cd5fa5c419f4). 
 
